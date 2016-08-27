@@ -23,6 +23,24 @@ $(".close" ).click(function(){
 	        console.log(data) ; 
 	    }
 })});*/
+
+function loadXMLDoc(){
+var xmlhttp;
+if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+}
+else{// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.onreadystatechange=function(){
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.querySelector(".containters").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","/news?num=2",true);
+xmlhttp.send();
+}
 function openShutManager(oSourceObj,oTargetObj,shutAble,oOpenTip,oShutTip){  
 var sourceObj = typeof oSourceObj == "string" ? document.getElementById(oSourceObj) : oSourceObj;  
 var targetObj = typeof oTargetObj == "string" ? document.getElementById(oTargetObj) : oTargetObj;  
@@ -262,3 +280,7 @@ function k_touch(contentId,way){
     }
 }
 
+
+
+
+     
